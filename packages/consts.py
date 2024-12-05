@@ -2,7 +2,7 @@
 
 __version__ = "0.1"
 
-API_ENDPOINT = "https://api.tibber.com/v1-beta/gql"
+API_ENDPOINT = "https://i.dont.know.yet"
 DEFAULT_TIMEOUT = 10
 RESPONSE_CODES = {
     0: 'Succeed to request',

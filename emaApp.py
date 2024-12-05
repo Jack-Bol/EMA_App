@@ -3,6 +3,9 @@ import hmac
 import hashlib
 import base64
 import uuid
+from itertools import count
+import packages.consts
+
 import requests
 
 
@@ -15,7 +18,7 @@ class emaApp:
         self.AppId = appId
         self.AppSecret = appSecret
         self.XCASignatureMethod = "HmacSHA256"
-        self.url = "https://i.dont.know.yet"
+        self.url = packages.consts.API_ENDPOINT
 
     def _generateSignature(self, stringToSign):
         appSecretBytes = self.AppSecret.encode('utf-8')
