@@ -4,7 +4,6 @@ import hashlib
 import base64
 import uuid
 import packages.consts
-
 import requests
 
 
