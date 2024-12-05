@@ -3,7 +3,6 @@ import hmac
 import hashlib
 import base64
 import uuid
-from itertools import count
 import packages.consts
 
 import requests
