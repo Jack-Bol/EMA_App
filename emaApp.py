@@ -6,10 +6,8 @@ import uuid
 import packages.consts
 import requests
 
-
 AppId = "decafe00000000000000000000000000"  # fill in your AppId and AppSecret
 AppSecret = "1337deadbeef"
-
 
 class emaApp:
     def __init__(self, appId, appSecret):
@@ -50,7 +48,15 @@ class emaApp:
         method = "POST"
         print(self.url + path)
         resp = requests.post(self.url + path, headers=self._generateHeader(path, method))
-        print(resp.json())
+        if resp.status_code == 200:
+            self.parseResponse(resp.json())
+
+    @staticmethod
+    def parseResponse(resp):
+        if 'code' in resp and resp['code'] != '0':
+            print(str(resp['code']) + ": " + str(packages.consts.RESPONSE_CODES[resp['code']]))
+        else:
+            print(str(resp))
 
 
 emaTest = emaApp(AppId, AppSecret)
