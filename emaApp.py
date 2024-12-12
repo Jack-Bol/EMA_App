@@ -3,7 +3,7 @@ import hmac
 import hashlib
 import base64
 import uuid
-import packages.consts
+from packages import CONSTS
 import requests
 
 AppId = "decafe00000000000000000000000000"  # fill in your AppId and AppSecret
@@ -14,7 +14,7 @@ class emaApp:
         self.AppId = appId
         self.AppSecret = appSecret
         self.XCASignatureMethod = "HmacSHA256"
-        self.url = packages.consts.API_ENDPOINT
+        self.url = CONSTS.API_ENDPOINT
 
     def _generateSignature(self, stringToSign):
         appSecretBytes = self.AppSecret.encode('utf-8')
@@ -54,7 +54,7 @@ class emaApp:
     @staticmethod
     def parseResponse(resp):
         if 'code' in resp and resp['code'] != '0':
-            print(str(resp['code']) + ": " + str(packages.consts.RESPONSE_CODES[resp['code']]))
+            print(str(resp['code']) + ": " + str(CONSTS.RESPONSE_CODES[resp['code']]))
         else:
             print(str(resp))
 
