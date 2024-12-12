@@ -1,8 +1,8 @@
 """Constants"""
 
-__version__ = "0.1"
+__version__ = "0.11"
 
-API_ENDPOINT = "https://i.dont.know.yet"
+API_ENDPOINT = "https://api.apsystemsema.com:9282"
 DEFAULT_TIMEOUT = 10
 RESPONSE_CODES = {
     0: 'Succeed to request',
